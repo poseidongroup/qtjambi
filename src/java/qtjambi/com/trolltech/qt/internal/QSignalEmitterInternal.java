@@ -129,12 +129,12 @@ public abstract class QSignalEmitterInternal {
             }
 
             public Connection(Object receiver, Method slot, byte returnType, byte connectionType) {
-                if((connectionType & HARD_REFERENCE_CONNECTION) != 0) {
+                //if((connectionType & HARD_REFERENCE_CONNECTION) != 0) {
                     this.receiver = receiver;
                     flags |= HARD_REFERENCE_CONNECTION;
-                } else {
-                    this.weakReceiver = new WeakReference<Object>(receiver);
-                }
+                //} else {
+                //    this.weakReceiver = new WeakReference<Object>(receiver);
+                //}
                 this.slot = slot;
                 this.slotId = com.trolltech.qt.internal.QtJambiInternal.resolveSlot(slot);
                 this.returnType = returnType;
