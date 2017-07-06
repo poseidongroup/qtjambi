@@ -141,9 +141,17 @@
 
     <!-- TODO: move to better place -->
     <target name="qtjambi.source" depends="log, generator.run">
-        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="java/src/qtjambi">
+        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${java.outsrcdir}/qtjambi">
         </zip>
-        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${generator.outputdir}/java/qtjambi" update="true">
+        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${generator.outputdir}/java" update="true">
+        </zip>
+    </target>
+	
+	<!-- Only create source zip without generator run -->
+	<target name="qtjambi.source.only" depends="init.build">
+        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${java.outsrcdir}/qtjambi">
+        </zip>
+        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${generator.outputdir}/java" update="true">
         </zip>
     </target>
 
