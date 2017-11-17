@@ -155,6 +155,18 @@
         </zip>
     </target>
 
+	<!-- Create zip file with debug symbols for this Qt and Jambi build -->
+	<target name="qtjambi.debugsymbols" depends="init.build">
+		<copy todir="${outputDir}/debug-symbols">
+			<fileset dir="${outputDir}/qmake-qtjambi/lib">
+				<include name="**/*.pdb"/>
+			</fileset>
+			<fileset dir="${qtjambi.qt.bindir}">
+				<include name="**/*.pdb"/>
+			</fileset>
+		</copy>
+        <zip destfile="${outputDir}/qtjambi-${qtjambi.version}-debug-symbols.zip" basedir="${outputDir}/debug-symbols"/>        
+    </target>	
     <!--
         TODO: the following two targets must go away
         Move them to their real location or something
