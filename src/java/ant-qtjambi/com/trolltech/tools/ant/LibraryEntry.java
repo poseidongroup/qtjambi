@@ -423,7 +423,7 @@ public class LibraryEntry extends Task {
             String tmpDebugSuffix = "_" + "debuglib";
             switch(OSInfo.os()) {
             case Windows:
-                return name + tmpVersionString + tmpDebugSuffix + ".dll";
+                return name + tmpDebugSuffix + tmpVersionString + ".dll";
             case MacOS:
                 return "lib" + name + tmpDebugSuffix + tmpDotVersionString + ".jnilib";
             case Solaris:
@@ -453,7 +453,7 @@ public class LibraryEntry extends Task {
             String tmpDebugSuffix = "_" + "debuglib";
             switch(OSInfo.os()) {
             case Windows:
-                return name + tmpVersionString + tmpDebugSuffix + ".dll";
+                return name + tmpDebugSuffix + tmpVersionString + ".dll";
             case MacOS:
                 return "lib" + name + tmpDebugSuffix + tmpDotVersionString + ".dylib";
             case Solaris:
@@ -484,7 +484,7 @@ public class LibraryEntry extends Task {
             String tmpDebugSuffix = "_" + "debuglib";
              switch(OSInfo.os()) {
              case Windows:
-                return name + tmpVersionString + tmpDebugSuffix + ".dll";
+                return name + tmpDebugSuffix + tmpVersionString + ".dll";
              case MacOS:
                 return "lib" + name + tmpDebugSuffix + tmpDotVersionString + ".dylib";
              case Solaris:
