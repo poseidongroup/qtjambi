@@ -99,6 +99,7 @@
     <target name="init.build" depends="log, setenv, init.taskdef, init"
 	description="Initializes the Qt Jambi build environment." >
         <qtjambi-initialize-build verbose="true"/>
+		<echo file="src/cpp/jambi-lib-version.pri" append="false">VERSION=${qtjambi.version}.0</echo>
         <!--<copy file="version.properties" todir="${java.srcdir}/qtjambi/"/>-->
     </target>
 
