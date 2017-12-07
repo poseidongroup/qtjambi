@@ -109,7 +109,7 @@
         <qtjambi-initialize verbose="true" test="true"/>
     </target>
 
-    <target name="init.build" depends="prepare.build.properties, log, setenv, init.taskdef, init"
+    <target name="init.build" depends="log, setenv, init.taskdef, init"
 	description="Initializes the Qt Jambi build environment." >
         <qtjambi-initialize-build verbose="true"/>
         <!-- Used to embed version into .dll and PDB files on Windows -->
@@ -252,7 +252,7 @@ ant all
     <target name="examples" depends="log, examples.bundle"
         description="Compiles and bundles the Qt Jambi examples."/>
 
-    <target name="all" depends="log, generator, library, examples"
+    <target name="all" depends="prepare.build.properties, log, generator, library, examples"
         description="Generates, builds and bundles the Qt Jambi libraries."/>
     
 
