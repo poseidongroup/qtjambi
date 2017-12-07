@@ -20,7 +20,7 @@ exists($$(PHONON_LIBS)) {
 
 include(../qtjambi/qtjambi_include.pri)
 include ($$QTJAMBI_CPP/com_trolltech_qt_phonon/com_trolltech_qt_phonon.pri)
-
+win32:include(../../../build/jambi-lib-version.pri)
 # libphonon.so.4 is dependant on many, using modifiers
 #  libQtCore.so.4 libQtGui.so.4 libQtXml.so.4 libQtDBus.so.4(known optional)
 QT += phonon

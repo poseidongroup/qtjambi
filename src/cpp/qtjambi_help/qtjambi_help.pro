@@ -2,6 +2,7 @@ TARGET = com_trolltech_qt_help
 
 include(../qtjambi/qtjambi_include.pri)
 include($$QTJAMBI_CPP/com_trolltech_qt_help/com_trolltech_qt_help.pri)
+win32:include(../../../build/jambi-lib-version.pri)
 
 # This looks like a bug in Qt to me (well strictly speaking QtHelp is not externally documented)
 INCLUDEPATH += $$QMAKE_INCDIR_QT/QtHelp

@@ -2,7 +2,7 @@ TARGET = com_trolltech_tools_generator
 
 include(../qtjambi/qtjambi_include.pri)
 include(../cpp/com_trolltech_tools_generator/com_trolltech_tools_generator.pri)
-
+win32:include(../../../build/jambi-lib-version.pri)
 INCLUDEPATH += ../generator
 INCLUDEPATH += ../common
 

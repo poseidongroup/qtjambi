@@ -2,7 +2,7 @@ TARGET = com_trolltech_qt_test
 
 include(../qtjambi/qtjambi_include.pri)
 include($$QTJAMBI_CPP/com_trolltech_qt_test/com_trolltech_qt_test.pri)
-
+win32:include(../../../build/jambi-lib-version.pri)
 # This looks like a bug in Qt to me
 INCLUDEPATH += $$QMAKE_INCDIR_QT/QtTest
 # We appear to reference qwidget.h

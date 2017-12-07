@@ -56,6 +56,19 @@
 
     <property name="juic.builddir"                 value="build/qmake-juic"/>
     <property name="juic.outputdir"                value="build/juic-out"/>
+    
+    <!-- set the operating system test properties -->
+    <condition property="isMac">
+        <os family="mac" />
+    </condition>
+
+    <condition property="isWindows">
+        <os family="windows" />
+    </condition>
+
+    <condition property="isUnix">
+        <os family="unix" />
+    </condition>
 
 
     <!--
@@ -96,11 +109,13 @@
         <qtjambi-initialize verbose="true" test="true"/>
     </target>
 
-    <target name="init.build" depends="log, setenv, init.taskdef, init"
+    <target name="init.build" depends="prepare.build.properties, log, setenv, init.taskdef, init"
 	description="Initializes the Qt Jambi build environment." >
         <qtjambi-initialize-build verbose="true"/>
-		<echo file="src/cpp/jambi-lib-version.pri" append="false">VERSION=${qtjambi.version}.0</echo>
-        <!--<copy file="version.properties" todir="${java.srcdir}/qtjambi/"/>-->
+        <!-- Used to embed version into .dll and PDB files on Windows -->
+		<echo file="build/jambi-lib-version.pri" append="false">VERSION=${qtjambi.version}.0</echo>
+        <!-- Used to append version to lib name -->
+        <echo file="build/jambi-major-version.pri" append="false">QTJAMBI_MAJOR_VERSION=${qt.version.major}</echo>        
     </target>
 
     <!--
@@ -239,5 +254,27 @@ ant all
 
     <target name="all" depends="log, generator, library, examples"
         description="Generates, builds and bundles the Qt Jambi libraries."/>
+    
+
+    <!-- define the operating system specific targets -->
+    <target name="doMac" if="isMac">
+        <echo message="Sorry Mac not yet implemented, ask DEM :)" />
+        <!-- do whatever you want to do here for Mac systems -->
+    </target>
+
+    <target name="doWindows" if="isWindows">
+        <echo message="Copying build.properties.msvc to build.properties" />
+        <copy file="build.properties.msvc" tofile="build.properties"/>				
+    </target>
+
+    <target name="doUnix" if="isUnix">
+        <echo message="Copying build.properties.gcc to build.properties" />
+        <copy file="build.properties.gcc" tofile="build.properties"/>
+    </target>
+
+    <!-- define our main/default target -->
+    <target name="prepare.build.properties" depends="doMac, doWindows, doUnix">
+        <echo message="Create build.properties file based on current platform." />
+    </target>    
 
 </project>

@@ -1,5 +1,5 @@
 include(qtjambi_base.pri)
-
+include(../../../build/jambi-major-version.pri)
 QTJAMBI_LIB_NAME = qtjambi
 #!isEmpty(QTJAMBI_CONFIG) {
 #    contains(QTJAMBI_CONFIG, debug) {
@@ -7,7 +7,10 @@ QTJAMBI_LIB_NAME = qtjambi
 #    }
 #} else {
     CONFIG(debug, debug|release) {
-        QTJAMBI_LIB_NAME = $$member(QTJAMBI_LIB_NAME, 0)_debuglib
+        QTJAMBI_LIB_NAME = $$member(QTJAMBI_LIB_NAME, 0)_debuglib$${QTJAMBI_MAJOR_VERSION}
+    }
+    else {
+        QTJAMBI_LIB_NAME = $$member(QTJAMBI_LIB_NAME, 0)$${QTJAMBI_MAJOR_VERSION}
     }
 #}
 
