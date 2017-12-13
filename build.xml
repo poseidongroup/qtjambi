@@ -157,18 +157,14 @@
 
     <!-- TODO: move to better place -->
     <target name="qtjambi.source" depends="log, generator.run">
-        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${java.outsrcdir}/qtjambi">
-        </zip>
-        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${generator.outputdir}/java" update="true">
-        </zip>
+        <jar destfile="qtjambi-${qtjambi.version}-sources.jar" basedir="${java.outsrcdir}/qtjambi"/>
+        <jar destfile="qtjambi-${qtjambi.version}-sources.jar" basedir="${generator.outputdir}/java" update="true"/>
     </target>
 	
 	<!-- Only create source zip without generator run -->
 	<target name="qtjambi.source.only" depends="init.build">
-        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${java.outsrcdir}/qtjambi">
-        </zip>
-        <zip destfile="qtjambi-${qtjambi.version}-src.zip" basedir="${generator.outputdir}/java" update="true">
-        </zip>
+        <jar destfile="qtjambi-${qtjambi.version}-sources.jar" basedir="${java.outsrcdir}/qtjambi"/>
+        <jar destfile="qtjambi-${qtjambi.version}-sources.jar" basedir="${generator.outputdir}/java" update="true"/>
     </target>
 
 	<!-- Create zip file with debug symbols for this Qt and Jambi build -->
@@ -252,7 +248,7 @@ ant all
     <target name="examples" depends="log, examples.bundle"
         description="Compiles and bundles the Qt Jambi examples."/>
 
-    <target name="all" depends="prepare.build.properties, log, generator, library, examples"
+    <target name="all" depends="prepare.build.properties, log, generator, library, examples, qtjambi.source"
         description="Generates, builds and bundles the Qt Jambi libraries."/>
     
 
