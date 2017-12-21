@@ -132,8 +132,13 @@ public class VersionPropertiesTask extends Task {
                 props = new Properties();
                 props.load(inStream);        // read in
                 props.put(Constants.VERSION, qtVersion);    // set version
-                if(qtjambiSonameVersionMajor != null)
+                if(qtjambiSonameVersionMajor != null) {
                     props.put(Constants.QTJAMBI_SONAME_VERSION_MAJOR, qtjambiSonameVersionMajor);  // set version
+				}
+				// If empty, use Qt major version as QTJAMBI_SONAME_VERSION_MAJOR
+				else {					
+					props.put(Constants.QTJAMBI_SONAME_VERSION_MAJOR, qtVersion.substring(0, 1));
+				}
 
                 inStream.close();
                 inStream = null;
