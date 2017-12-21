@@ -41,7 +41,7 @@ DEFINES += QTJAMBI_EXPORT
 
 win32:CONFIG += precompile_header
 win32:PRECOMPILED_HEADER = qtjambi_core.h
-win32:include(../../../build/jambi-lib-version.pri)
+include(../../../build/jambi-lib-version.pri)
 
 macx:CONFIG -= precompile_header
 

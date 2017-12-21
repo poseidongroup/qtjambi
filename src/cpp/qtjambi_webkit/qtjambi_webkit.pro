@@ -2,7 +2,7 @@ TARGET = com_trolltech_qt_webkit
 
 include(../qtjambi/qtjambi_include.pri)
 include ($$QTJAMBI_CPP/com_trolltech_qt_webkit/com_trolltech_qt_webkit.pri)
-win32:include(../../../build/jambi-lib-version.pri)
+include(../../../build/jambi-lib-version.pri)
 # We manually add these include paths, instead of using "QT += module" which is bad for us
 #  as it created unnecessary hardwired linkage to libraries we may never reference any symbols from.
 # To be able to remove this we need to make generator better/smarter about #include directives

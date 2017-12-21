@@ -1,5 +1,5 @@
 include(qtjambi_base.pri)
-include(../../../build/jambi-major-version.pri)
+win32:include(../../../build/jambi-major-version.pri)
 QTJAMBI_LIB_NAME = qtjambi
 #!isEmpty(QTJAMBI_CONFIG) {
 #    contains(QTJAMBI_CONFIG, debug) {

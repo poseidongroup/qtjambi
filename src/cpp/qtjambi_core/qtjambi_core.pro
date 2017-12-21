@@ -2,7 +2,7 @@ TARGET = com_trolltech_qt_core
 
 include(../qtjambi/qtjambi_include.pri)
 include ($$QTJAMBI_CPP/com_trolltech_qt_core/com_trolltech_qt_core.pri)
-win32:include(../../../build/jambi-lib-version.pri)
+include(../../../build/jambi-lib-version.pri)
 HEADERS += qtjambiconcurrent.h qtjambiconcurrent_p.h qtjambi_core_qhashes.h
 SOURCES += qtjambiconcurrent.cpp
 

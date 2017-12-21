@@ -8,7 +8,7 @@ include($$QTJAMBI_CPP/com_trolltech_qt_scripttools/com_trolltech_qt_scripttools.
 # To be able to remove this we need to make generator better/smarter about #include directives
 #  and it might not include these files at all.
 INCLUDEPATH += $$QMAKE_INCDIR_QT/QtScript
-win32:include(../../../build/jambi-lib-version.pri)
+include(../../../build/jambi-lib-version.pri)
 # libQtScriptTools.so.4.7.4 is dependant on many, using modifiers
 #   libQtCore.so.4 libQtGui.so.4 libQtScript.so.4
 # Neded += script (for header file resolutions)

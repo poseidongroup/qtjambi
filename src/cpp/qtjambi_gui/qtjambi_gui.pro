@@ -16,7 +16,7 @@ HEADERS += \
 
 include(../qtjambi/qtjambi_include.pri)
 include ($$QTJAMBI_CPP/com_trolltech_qt_gui/com_trolltech_qt_gui.pri)
-win32:include(../../../build/jambi-lib-version.pri)
+include(../../../build/jambi-lib-version.pri)
 
 # Some classes (such as QLine) need access to <qtjambi_core_qhashes.h>
 INCLUDEPATH += $$PWD/../qtjambi_core
