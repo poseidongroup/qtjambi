@@ -17,7 +17,7 @@
 
     <property name="jambi.directory"               value="${basedir}"/>
 
-    <property file="build.properties"/>
+    <!--<property file="build.properties"/>-->
 
     <property name="sourceDir" value="build"/>
     <property name="outputDir" value="build"/>
@@ -259,13 +259,13 @@ ant all
     </target>
 
     <target name="doWindows" if="isWindows">
-        <echo message="Copying build.properties.msvc to build.properties" />
-        <copy file="build.properties.msvc" tofile="build.properties"/>				
+        <echo message="Using build.properties.msvc" />
+        <loadproperties srcFile="build.properties.msvc"/>
     </target>
 
     <target name="doUnix" if="isUnix">
-        <echo message="Copying build.properties.gcc to build.properties" />
-        <copy file="build.properties.gcc" tofile="build.properties"/>
+        <echo message="Using build.properties.gcc" />
+        <loadproperties srcFile="build.properties.gcc"/>
     </target>
 
     <!-- define our main/default target -->
