@@ -168,7 +168,7 @@
     </target>
 
 	<!-- Create zip file with debug symbols for this Qt and Jambi build -->
-	<target name="qtjambi.debugsymbols" depends="init.build">
+	<target name="qtjambi.debugsymbols" depends="prepare.build.properties, init.build">
 		<copy todir="${outputDir}/debug-symbols">
 			<fileset dir="${outputDir}/qmake-qtjambi/lib">
 				<include name="**/*.pdb"/>
