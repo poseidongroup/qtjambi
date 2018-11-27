@@ -9,6 +9,8 @@
 
     <property file="${jambi.directory}/build.properties"/>
     <property file="${jambi.directory}/antcontrib.properties"/>
+    <!-- include ant definitions fron ant-contrib (if,then,else ...)-->
+    <taskdef classpath="extjars/ant-contrib-1.0b3.jar" resource="net/sf/antcontrib/antcontrib.properties"/>
 
     <!--
         We want the environment variables and we want a timestamp for jars.
@@ -114,6 +116,6 @@
         <property name="qtjambi.jambi.pluginsdir"   value="${jambi.directory}${file.separator}build${file.separator}qmake-qtjambi${file.separator}plugins"/>
     </target>
 
-    <target name="setenv" depends="source.antcontrib, setup-properties"/>
+    <target name="setenv" depends="setup-properties"/>
 
 </project>
